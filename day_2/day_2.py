@@ -21,18 +21,11 @@ with open("day2.txt") as file:
    
     for i in range(len(content)):
         content[i] = content[i].split("\t")
-
-for i in range(len(content)): 
-    for j in range(len(content[i])):
-        content[i][j] = int(content[i][j])
-
-number_to_sum = []
-for i in range(len(content)):
-    number = max(content[i]) - min(content[i])
-    number_to_sum.append(number)
+        content[i] = list(map(int, content[i]))
 
 summary = 0
-for i in range(len(number_to_sum)):
-    summary += number_to_sum[i]
+for i in range(len(content)):
+    number = max(content[i]) - min(content[i])
+    summary += number
 
 print(summary)

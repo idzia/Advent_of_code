@@ -67,8 +67,3 @@ vertical_step = square_number
 steps = int(horizont_step + vertical_step)
 
 print(steps)
-
-
-
-"""    square_number = math.floor(math.ceil(math.sqrt(digit))/2)
-    return square_number"""

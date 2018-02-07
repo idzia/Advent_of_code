@@ -18,16 +18,30 @@ import math
 
 def get_square_number(digit):
 
-    square_number = math.floor(math.ceil(math.sqrt(digit))/2)
+    square_number = 0
+    value_from_previous_squer = 1
+    a = 0
+    while a == 0:      
+        
+        square_number += 1
+        digit_in_square = square_number * 8
+        min_value_in_square = value_from_previous_squer + 1
+        max_value_in_square = value_from_previous_squer + digit_in_square
+
+        if digit >= min_value_in_square and digit <= max_value_in_square:
+            a = 1
+        
+        value_from_previous_squer = max_value_in_square
+
     return square_number
 
 digit = input("Please enter a number: ")
 digit = int(digit)
 square_number = get_square_number(digit)
 
-highest_number_in_square = (2 * square_number + 1)**2
+max_value_in_square = (2 * square_number + 1)**2
 
-number_in_corner4 = highest_number_in_square
+number_in_corner4 = max_value_in_square
 number_in_corner3 = number_in_corner4 - (2 * square_number)
 number_in_corner2 = number_in_corner3 - (2 * square_number)
 number_in_corner1 = number_in_corner2 - (2 * square_number)
@@ -53,3 +67,8 @@ vertical_step = square_number
 steps = int(horizont_step + vertical_step)
 
 print(steps)
+
+
+
+"""    square_number = math.floor(math.ceil(math.sqrt(digit))/2)
+    return square_number"""
